@@ -10,7 +10,7 @@ Ouvre jusqu'à 60 fenêtres d'émulateur, chacune avec sa propre horloge,<br>et 
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/version-1.2.0-3c6eb4" alt="Version 1.2.0">
+<img src="https://img.shields.io/badge/version-1.2.2-3c6eb4" alt="Version 1.2.2">
 <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078d6" alt="Windows 10 | 11">
 <img src="https://img.shields.io/badge/licence-MIT-2f8a4f" alt="Licence MIT">
 </p>
@@ -124,6 +124,8 @@ Chaque émulateur a son fichier de réglages à côté de l'exe : `LanceurMelonD
 | RunAsDate n'a aucun effet | Utilise la version de RunAsDate (32 ou 64 bits) qui correspond à ton émulateur. |
 | Le PC rame avec beaucoup de fenêtres | Coupe le son et la VSync dans l'émulateur, ou ouvre moins de fenêtres. |
 | L'écran du haut est coupé ou trop espacé | Ajuste `pasVertical` dans le fichier `.ini` de l'émulateur. |
+| Le launcher se ferme sans message | C'est sûrement l'antivirus (à cause de RunAsDate) : regarde l'historique de protection et ajoute le dossier du launcher et RunAsDate aux exclusions. |
+| Une erreur s'affiche | Le détail est dans `ErisEzioLauncher.log`, à côté du programme : joins-le à ton signalement dans l'onglet [Issues](../../issues). |
 
 ## 🛠️ Compiler soi-même
 
@@ -146,7 +148,9 @@ Le fichier `rsrc_windows_amd64.syso` contient l'icône et le manifeste Windows ;
 
 | Version | Nouveautés |
 |---|---|
-| **1.2.0** | Choix de l'écran, ajout de DeSmuME |
+| **1.2.2** | Correction : le launcher se fermait à l'ouverture d'une fenêtre « Ouvrir » (émulateur introuvable, bouton « … ») |
+| 1.2.1 | Messages d'erreur et journal de diagnostic `ErisEzioLauncher.log` |
+| 1.2.0 | Choix de l'écran, ajout de DeSmuME |
 | 1.1.0 | Décalage en quinconce au choix pour tous les émulateurs, bouton ARRÊTER |
 | 1.0.2 | Affichage correct en passant d'un écran 4K à un écran 1080p |
 | 1.0.1 | Option de décalage des lignes pour melonDS |
