@@ -5,14 +5,19 @@ Launcher pour ouvrir plusieurs fenêtres d'émulateurs
 <h1 align="center">Eris Ezio's Launcher</h1>
 
 <p align="center">
+🇫🇷 Français · 🇬🇧 <i>English, Deutsch, Italiano, Русский and 日本語 are available in the app.</i>
+</p>
+
+<p align="center">
 <b>Le shiny hunting multi-fenêtres, en un clic.</b><br>
 Ouvre jusqu'à 60 fenêtres d'émulateur, chacune avec sa propre horloge,<br>et range-les automatiquement au pixel près.
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/version-1.2.2-3c6eb4" alt="Version 1.2.2">
+<img src="https://img.shields.io/badge/version-1.3.0-3c6eb4" alt="Version 1.3.0">
 <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078d6" alt="Windows 10 | 11">
 <img src="https://img.shields.io/badge/licence-MIT-2f8a4f" alt="Licence MIT">
+<img src="https://img.shields.io/badge/langues-FR%20%7C%20EN%20%7C%20DE%20%7C%20IT%20%7C%20RU%20%7C%20JA-ce3c60" alt="Langues">
 </p>
 
 <p align="center">
@@ -45,6 +50,7 @@ En shiny hunting sur émulateur, chaque fenêtre doit démarrer avec une heure d
 - **Glisser-déposer** de la ROM, de la cartouche GBA et de la sauvegarde.
 - **Bouton ARRÊTER** pour stopper l'ouverture à tout moment.
 - **Interface inspirée du menu de la Nintendo DS**, nette en 1080p comme en 4K.
+- **6 langues** : français, anglais, allemand, italien, russe et japonais, au choix dans la barre du haut.
 - **Réglages mémorisés** séparément pour chaque émulateur.
 
 ## 🎮 Émulateurs pris en charge
@@ -73,7 +79,7 @@ Au premier lancement, le launcher cherche tout seul RunAsDate et les émulateurs
 
 ## 🚀 Prise en main
 
-1. Choisis l'**émulateur** et l'**écran**.
+1. Choisis la **langue** dans la barre du haut si besoin, puis l'**émulateur** et l'**écran**.
 2. Indique le **nombre de fenêtres** et le **nombre par ligne**.
 3. Choisis la **date** et l'**heure** de la première fenêtre.
 4. Coche ou décoche le **décalage en quinconce**.
@@ -148,7 +154,8 @@ Le fichier `rsrc_windows_amd64.syso` contient l'icône et le manifeste Windows ;
 
 | Version | Nouveautés |
 |---|---|
-| **1.2.2** | Correction : le launcher se fermait à l'ouverture d'une fenêtre « Ouvrir » (émulateur introuvable, bouton « … ») |
+| **1.3.0** | Interface en 6 langues : français, anglais, allemand, italien, russe, japonais |
+| 1.2.2 | Correction : le launcher se fermait à l'ouverture d'une fenêtre « Ouvrir » (émulateur introuvable, bouton « … ») |
 | 1.2.1 | Messages d'erreur et journal de diagnostic `ErisEzioLauncher.log` |
 | 1.2.0 | Choix de l'écran, ajout de DeSmuME |
 | 1.1.0 | Décalage en quinconce au choix pour tous les émulateurs, bouton ARRÊTER |
