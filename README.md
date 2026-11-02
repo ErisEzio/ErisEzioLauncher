@@ -1,5 +1,3 @@
-# ErisEzioLauncher
-Launcher pour ouvrir plusieurs fenêtres d'émulateurs
 <p align="center"><img src="docs/logo.png" width="170" alt="Logo Eris Ezio"></p>
 
 <h1 align="center">Eris Ezio's Launcher</h1>
@@ -14,7 +12,7 @@ Ouvre jusqu'à 60 fenêtres d'émulateur, chacune avec sa propre horloge,<br>et 
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/version-1.3.0-3c6eb4" alt="Version 1.3.0">
+<img src="https://img.shields.io/badge/version-1.4.0-3c6eb4" alt="Version 1.4.0">
 <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078d6" alt="Windows 10 | 11">
 <img src="https://img.shields.io/badge/licence-MIT-2f8a4f" alt="Licence MIT">
 <img src="https://img.shields.io/badge/langues-FR%20%7C%20EN%20%7C%20DE%20%7C%20IT%20%7C%20RU%20%7C%20JA-ce3c60" alt="Langues">
@@ -36,15 +34,15 @@ En shiny hunting sur émulateur, chaque fenêtre doit démarrer avec une heure d
 
 **Eris Ezio's Launcher** fait tout ça pour toi :
 
-1. il ouvre les fenêtres via **RunAsDate**, avec **+1 minute** d'horloge à chaque fenêtre ;
+1. il ouvre les fenêtres via **RunAsDate**, chacune avec une horloge décalée (+1 minute par défaut, réglable) ;
 2. il les **range automatiquement**, collées bord à bord, sur l'écran de ton choix ;
 3. il charge directement ta **ROM**, ta **cartouche GBA** et ta **sauvegarde**.
 
 ## ✨ Fonctionnalités
 
 - **5 émulateurs** : melonDS, DeSmuME, VisualBoyAdvance, mGBA et Azahar.
-- **Une horloge différente par fenêtre** (fenêtre 1 à 14:00, fenêtre 2 à 14:01, etc.).
-- **Rangement au pixel près**, lignes alignées ou **en quinconce** (décalage d'une demi-fenêtre).
+- **Une horloge différente par fenêtre**, avec un écart réglable en **secondes, minutes, heures, jours, mois ou années** (par défaut +1 minute : 14:00, 14:01, 14:02…).
+- **Rangement au pixel près**, lignes alignées ou **en quinconce** (décalage d'une demi-fenêtre), toujours empilées dans le bon ordre (chaque ligne devant la précédente).
 - **Pour la DS et la 3DS**, les lignes se chevauchent juste assez pour garder **l'écran du haut** entièrement visible.
 - **Choix de l'écran** (ou automatiquement le plus grand).
 - **Glisser-déposer** de la ROM, de la cartouche GBA et de la sauvegarde.
@@ -81,7 +79,7 @@ Au premier lancement, le launcher cherche tout seul RunAsDate et les émulateurs
 
 1. Choisis la **langue** dans la barre du haut si besoin, puis l'**émulateur** et l'**écran**.
 2. Indique le **nombre de fenêtres** et le **nombre par ligne**.
-3. Choisis la **date** et l'**heure** de la première fenêtre.
+3. Choisis la **date** et l'**heure** de la première fenêtre, puis l'**écart d'horloge** entre deux fenêtres.
 4. Coche ou décoche le **décalage en quinconce**.
 5. Glisse ta **ROM** sur la fenêtre (et si besoin une cartouche GBA ou une sauvegarde).
 6. Clique sur **LANCER**.
@@ -154,7 +152,8 @@ Le fichier `rsrc_windows_amd64.syso` contient l'icône et le manifeste Windows ;
 
 | Version | Nouveautés |
 |---|---|
-| **1.3.0** | Interface en 6 langues : français, anglais, allemand, italien, russe, japonais |
+| **1.4.0** | Écart d'horloge réglable (secondes → années), ordre d'empilement des fenêtres corrigé |
+| 1.3.0 | Interface en 6 langues : français, anglais, allemand, italien, russe, japonais |
 | 1.2.2 | Correction : le launcher se fermait à l'ouverture d'une fenêtre « Ouvrir » (émulateur introuvable, bouton « … ») |
 | 1.2.1 | Messages d'erreur et journal de diagnostic `ErisEzioLauncher.log` |
 | 1.2.0 | Choix de l'écran, ajout de DeSmuME |
@@ -174,6 +173,9 @@ Le fichier `rsrc_windows_amd64.syso` contient l'icône et le manifeste Windows ;
 - melonDS, DeSmuME, VisualBoyAdvance-M, mGBA et Azahar appartiennent à leurs auteurs respectifs. Ce projet n'est affilié à aucun d'eux, ni à Nintendo.
 - Aucune ROM n'est fournie : utilise uniquement des copies de jeux que tu possèdes.
 
+## 📄 Licence
+
+Distribué sous licence **MIT** : tu peux utiliser, modifier et redistribuer ce programme librement, à condition de conserver le nom de l'auteur et la licence. Voir le fichier [LICENSE](LICENSE).
 ## 📄 Licence
 
 Distribué sous licence **MIT** : tu peux utiliser, modifier et redistribuer ce programme librement, à condition de conserver le nom de l'auteur et la licence. Voir le fichier [LICENSE](LICENSE).
