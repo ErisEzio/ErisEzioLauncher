@@ -12,7 +12,7 @@ Ouvre jusqu'à 60 fenêtres d'émulateur, chacune avec sa propre horloge,<br>et 
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/version-1.4.0-3c6eb4" alt="Version 1.4.0">
+<img src="https://img.shields.io/badge/version-1.9.1-3c6eb4" alt="Version 1.9.1">
 <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078d6" alt="Windows 10 | 11">
 <img src="https://img.shields.io/badge/licence-MIT-2f8a4f" alt="Licence MIT">
 <img src="https://img.shields.io/badge/langues-FR%20%7C%20EN%20%7C%20DE%20%7C%20IT%20%7C%20RU%20%7C%20JA-ce3c60" alt="Langues">
@@ -20,6 +20,8 @@ Ouvre jusqu'à 60 fenêtres d'émulateur, chacune avec sa propre horloge,<br>et 
 
 <p align="center">
 <a href="../../releases/latest"><b>⬇ Télécharger la dernière version</b></a>
+&nbsp;·&nbsp;
+<a href="docs/Guide_Launcher_Bot_Peche.pdf"><b>📘 Guide PDF</b></a>
 &nbsp;·&nbsp;
 <a href="https://twitch.tv/eris_ezio_live">Twitch</a>
 &nbsp;·&nbsp;
@@ -50,6 +52,7 @@ En shiny hunting sur émulateur, chaque fenêtre doit démarrer avec une heure d
 - **Interface inspirée du menu de la Nintendo DS**, nette en 1080p comme en 4K.
 - **6 langues** : français, anglais, allemand, italien, russe et japonais, au choix dans la barre du haut.
 - **Réglages mémorisés** séparément pour chaque émulateur.
+- **Bot de pêche automatique** pour Pokémon Diamant, Perle, Platine, HeartGold, SoulSilver, Noire, Blanche, Noire 2 et Blanche 2 sur DeSmuME, et pour Rubis, Saphir, Émeraude, Rouge Feu et Vert Feuille sur mGBA.
 
 ## 🎮 Émulateurs pris en charge
 
@@ -108,6 +111,50 @@ Dépose un fichier n'importe où sur la fenêtre, le launcher reconnaît son typ
 
 > 💡 Toutes les fenêtres partagent le même fichier de sauvegarde : **ne sauvegarde que dans la fenêtre du shiny**.
 
+## 📘 Guide illustré (PDF)
+
+Tout est expliqué pas à pas, avec des captures, dans le guide : **[docs/Guide_Launcher_Bot_Peche.pdf](docs/Guide_Launcher_Bot_Peche.pdf)**.
+Il contient les liens de téléchargement de tout ce qu'il faut (RunAsDate, DeSmuME, Lua 5.1, mGBA 0.10.5).
+
+## 📂 Scripts du bot
+
+Les scripts sont intégrés dans le launcher, mais ils sont aussi fournis à part dans le dossier [`scripts`](scripts) :
+
+| Fichier | Jeux | Émulateur |
+|---|---|---|
+| `peche_auto_desmume.lua` | Diamant, Perle, Platine | DeSmuME |
+| `peche_auto_hgss.lua` | HeartGold, SoulSilver | DeSmuME |
+| `peche_auto_bw.lua` | Noire, Blanche, Noire 2, Blanche 2 | DeSmuME |
+| `peche_auto_gba.lua` | Rubis, Saphir, Émeraude, Rouge Feu, Vert Feuille | mGBA 0.10.5 |
+| `test_shiny_gba.lua` | Test : rend shiny chaque Pokémon sauvage (GBA), pour vérifier le bot | mGBA 0.10.5 |
+
+Pour utiliser ta propre version d'un script, pose le fichier du même nom à côté de l'exe de l'émulateur : le launcher le prend à la place de celui intégré.
+
+## 🎣 Bot de pêche (DeSmuME)
+
+Pour Pokémon **Diamant, Perle, Platine, HeartGold, SoulSilver, Noire, Blanche, Noire 2 et Blanche 2**, le launcher peut démarrer un bot de pêche dans chaque fenêtre DeSmuME.
+
+1. Choisis **DeSmuME**, coche **Lancer le bot de pêche automatique**, glisse ta ROM puis clique sur **LANCER**.
+2. Dans chaque fenêtre, place-toi face à l'eau (canne enregistrée sur **Y**) et appuie une fois sur **Y**.
+3. Le bot lance la canne, appuie sur **A** au « ! », ferme les messages d'échec et relance tout seul.
+4. En combat, le bot te laisse la main : **Y** le fait fuir pour toi, puis il relance la pêche.
+5. Shiny : sauvegarde d'état dans l'emplacement 9 dès la détection, puis pause de DeSmuME pile sur les étoiles. Y ne fait plus fuir. Reprends avec le bouton Lecture de DeSmuME.
+
+Dans **Diamant/Perle/Platine**, garde une appli du Pokétch à fond vert (l'horloge par exemple) : c'est le repère « hors combat » du bot. Dans **HeartGold/SoulSilver**, la canne doit être sur l'écran tactile (le bot la touche quand tu appuies sur Y). La touche **K** met le bot en pause ou le relance.
+
+En coulisses, le launcher copie le script dans le dossier `Lua` de DeSmuME sous le nom de la ROM, et active l'option *chargement automatique des scripts* de DeSmuME. Le launcher choisit le bon script d'après la ROM : `peche_auto_desmume.lua` pour Diamant/Perle/Platine, `peche_auto_hgss.lua` pour HeartGold/SoulSilver (sans Pokétch, le combat est repéré dans la mémoire du jeu), `peche_auto_bw.lua` pour Noire/Blanche/Noire 2/Blanche 2 (touche, échec et combat lus dans la mémoire du jeu). Pour utiliser ta propre version d'un script, pose le fichier du même nom à côté de DeSmuME : il sera pris à la place de celui intégré. DeSmuME a besoin de `lua51.dll` à côté de son exe pour exécuter les scripts.
+
+## 🎣 Bot de pêche (mGBA)
+
+Pour Pokémon **Rubis, Saphir, Émeraude, Rouge Feu et Vert Feuille** (toutes langues, Émeraude avec correctif de RNG compris), le launcher prépare un bot de pêche pour mGBA.
+
+1. Choisis **mGBA**, coche **Lancer le bot de pêche automatique**, glisse ta ROM puis clique sur **LANCER**.
+2. Après l'ouverture des fenêtres, le launcher charge le bot dans chacune (il ouvre lui-même *Outils > Scripting* puis le script) : **ne touche ni à la souris ni au clavier** pendant quelques secondes. Utilise **mGBA 0.10.5** (version stable) : les versions de développement actuelles pour Windows ne savent pas exécuter les scripts.
+3. Canne enregistrée sur **Select** : lance la première pêche avec **Select**. Le bot ferre au « ! », ferme les messages d'échec et relance la canne.
+4. En combat, **Select** fait fuir. Shiny : sauvegarde d'état dans l'emplacement 9, puis l'image est figée au moment des étoiles ; **Start** (touche **Entrée** par défaut) pour reprendre la main.
+
+**L + R** met le bot en pause ou le relance. Tout est lu dans la mémoire du jeu. Pour utiliser ta propre version du script, pose `peche_auto_gba.lua` à côté de mGBA.
+
 ## ⚙️ Réglages avancés
 
 Chaque émulateur a son fichier de réglages à côté de l'exe : `LanceurMelonDS.ini`, `LanceurDeSmuME.ini`, `LanceurVBA.ini`, `LanceurMGBA.ini` et `LanceurAzahar.ini`.
@@ -129,6 +176,7 @@ Chaque émulateur a son fichier de réglages à côté de l'exe : `LanceurMelonD
 | Le PC rame avec beaucoup de fenêtres | Coupe le son et la VSync dans l'émulateur, ou ouvre moins de fenêtres. |
 | L'écran du haut est coupé ou trop espacé | Ajuste `pasVertical` dans le fichier `.ini` de l'émulateur. |
 | Le launcher se ferme sans message | C'est sûrement l'antivirus (à cause de RunAsDate) : regarde l'historique de protection et ajoute le dossier du launcher et RunAsDate aux exclusions. |
+| Le bot de pêche ne démarre pas | Vérifie que `lua51.dll` (Lua 5.1, même version 32/64 bits que DeSmuME) est à côté de l'exe de DeSmuME. |
 | Une erreur s'affiche | Le détail est dans `ErisEzioLauncher.log`, à côté du programme : joins-le à ton signalement dans l'onglet [Issues](../../issues). |
 
 ## 🛠️ Compiler soi-même
@@ -152,7 +200,17 @@ Le fichier `rsrc_windows_amd64.syso` contient l'icône et le manifeste Windows ;
 
 | Version | Nouveautés |
 |---|---|
-| **1.4.0** | Écart d'horloge réglable (secondes → années), ordre d'empilement des fenêtres corrigé |
+| **1.9.1** | Scripts DS intégrés mis à jour (Diamant/Perle/Platine v20, HeartGold/SoulSilver, Noire/Blanche v4), guide PDF et scripts fournis à part |
+| 1.9.0 | Bot GBA chargé automatiquement dans chaque fenêtre mGBA 0.10.5 (le launcher pilote le menu Scripting) |
+| 1.8.2 | Bot GBA : lance le combat quand un Pokémon mord, fuite fiable (passe les textes et réessaie), journal `bot_peche_gba.log` à côté du script |
+| 1.8.1 | mGBA : ROM GBA en taille x2 (480 x 320), fenêtres « Scripting » ignorées au rangement et masquées, bot qui attend que la ROM soit prête |
+| 1.8.0 | Bot de pêche pour mGBA : Rubis / Saphir / Émeraude / Rouge Feu / Vert Feuille ; case « Lancer le bot de pêche automatique » raccourcie |
+| 1.7.0 | Bot de pêche compatible Noire / Blanche / Noire 2 / Blanche 2 |
+| 1.6.0 | Bot de pêche compatible HeartGold / SoulSilver (script choisi automatiquement selon la ROM) |
+| 1.5.2 | Bot de pêche : démarre aussi quand le nom de la ROM contient des accents (« Pokémon ») |
+| 1.5.1 | DeSmuME : l'écran du haut n'est plus coupé (décalage entre lignes mesuré sur la fenêtre, barre d'outils comprise) |
+| 1.5.0 | Bot de pêche automatique pour DeSmuME (Pokémon DPPt), lancé avec chaque fenêtre |
+| 1.4.0 | Écart d'horloge réglable (secondes → années), ordre d'empilement des fenêtres corrigé |
 | 1.3.0 | Interface en 6 langues : français, anglais, allemand, italien, russe, japonais |
 | 1.2.2 | Correction : le launcher se fermait à l'ouverture d'une fenêtre « Ouvrir » (émulateur introuvable, bouton « … ») |
 | 1.2.1 | Messages d'erreur et journal de diagnostic `ErisEzioLauncher.log` |
@@ -176,7 +234,3 @@ Le fichier `rsrc_windows_amd64.syso` contient l'icône et le manifeste Windows ;
 ## 📄 Licence
 
 Distribué sous licence **MIT** : tu peux utiliser, modifier et redistribuer ce programme librement, à condition de conserver le nom de l'auteur et la licence. Voir le fichier [LICENSE](LICENSE).
-## 📄 Licence
-
-Distribué sous licence **MIT** : tu peux utiliser, modifier et redistribuer ce programme librement, à condition de conserver le nom de l'auteur et la licence. Voir le fichier [LICENSE](LICENSE).
-
